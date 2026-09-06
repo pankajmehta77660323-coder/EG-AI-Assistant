@@ -203,7 +203,7 @@ app.use(cors(corsOptions));
    8. PREFLIGHT REQUEST
    ========================================================= */
 
-app.options("*", cors(corsOptions));
+app.options(/.*/, cors(corsOptions));
 
 
 /* =========================================================
