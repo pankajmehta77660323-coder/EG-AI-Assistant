@@ -15,7 +15,7 @@ const EG_CONFIG = {
   version: "1.0.0",
   language: "hi-IN",
 
-  backendUrl: "",
+  backendUrl: "https://eg-ai-assistant-sf6a.onrender.com"
 
   requestTimeout: 30000,
 
