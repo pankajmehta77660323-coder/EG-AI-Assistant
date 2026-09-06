@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <meta
+    name="description"
+    content="E.G. AI Assistant - secure, multilingual and voice-enabled personal AI assistant."
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b1020"
+  >
+
+  <title>E.G. AI Assistant</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+
+  <!-- =====================================================
+       E.G. AI ASSISTANT
+       index.html — Part 1/5
+       App Shell + Authentication Screen
+       ===================================================== -->
+
+  <div
+    id="app"
+    class="eg-app"
+  >
+
+    <!-- ===================================================
+         LOGIN / REGISTER SCREEN
+         =================================================== -->
+
+    <section
+      id="loginScreen"
+      class="eg-screen"
+      aria-label="E.G. authentication"
+    >
+
+      <div class="eg-auth-container">
+
+        <div class="eg-auth-card">
+
+          <!-- ---------- LOGO ---------- -->
+
+          <div
+            class="eg-auth-logo"
+            aria-hidden="true"
+          >
+            E.G.
+          </div>
+
+          <!-- ---------- TITLE ---------- -->
+
+          <h1 class="eg-auth-title">
+            E.G. AI Assistant
+          </h1>
+
+          <p class="eg-auth-subtitle">
+            आपका personal AI assistant
+          </p>
+
+          <!-- =================================================
+               LOGIN FORM
+               ================================================= -->
+
+          <form
+            id="loginForm"
+            class="eg-auth-form"
+            novalidate
+          >
+
+            <div class="eg-form-group">
+
+              <label
+                class="eg-form-label"
+                for="loginEmail"
+              >
+                Email
+              </label>
+
+              <input
+                id="loginEmail"
+                class="eg-input"
+                type="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                placeholder="अपना email लिखें"
+                maxlength="254"
+                required
+              >
+
+            </div>
+
+            <div class="eg-form-group">
+
+              <label
+                class="eg-form-label"
+                for="loginPassword"
+              >
+                Password
+              </label>
+
+              <input
+                id="loginPassword"
+                class="eg-input"
+                type="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="अपना password लिखें"
+                maxlength="128"
+                required
+              >
+
+            </div>
+
+            <div
+              id="loginError"
+              class="eg-form-error"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+            <div class="eg-auth-actions">
+
+              <button
+                id="loginButton"
+                class="eg-btn eg-btn-primary eg-full-width"
+                type="submit"
+              >
+                Login
+              </button>
+
+            </div>
+
+          </form>
+
+          <!-- =================================================
+               REGISTER FORM
+               ================================================= -->
+
+          <form
+            id="registerForm"
+            class="eg-auth-form eg-hidden"
+            novalidate
+          >
+
+            <div class="eg-form-group">
+
+              <label
+                class="eg-form-label"
+                for="registerName"
+              >
+                Name
+              </label>
+
+              <input
+                id="registerName"
+                class="eg-input"
+                type="text"
+                name="name"
+                autocomplete="name"
+                placeholder="अपना नाम लिखें"
+                maxlength="100"
+                required
+              >
+
+            </div>
+
+            <div class="eg-form-group">
+
+              <label
+                class="eg-form-label"
+                for="registerEmail"
+              >
+                Email
+              </label>
+
+              <input
+                id="registerEmail"
+                class="eg-input"
+                type="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                placeholder="अपना email लिखें"
+                maxlength="254"
+                required
+              >
+
+            </div>
+
+            <div class="eg-form-group">
+
+              <label
+                class="eg-form-label"
+                for="registerPassword"
+              >
+                Password
+              </label>
+
+              <input
+                id="registerPassword"
+                class="eg-input"
+                type="password"
+                name="password"
+                autocomplete="new-password"
+                placeholder="नया password लिखें"
+                maxlength="128"
+                required
+              >
+
+            </div>
+
+            <div
+              id="registerError"
+              class="eg-form-error"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+            <div class="eg-auth-actions">
+
+              <button
+                id="registerButton"
+                class="eg-btn eg-btn-primary eg-full-width"
+                type="submit"
+              >
+                Register
+              </button>
+
+            </div>
+
+          </form>
+
+          <!-- =================================================
+               LOGIN / REGISTER SWITCH
+               ================================================= -->
+
+          <div class="eg-auth-switch">
+
+            <span id="loginSwitchText">
+              नया account बनाना है?
+            </span>
+
+            <button
+              id="showRegisterButton"
+              type="button"
+            >
+              Register
+            </button>
+
+            <button
+              id="showLoginButton"
+              class="eg-hidden"
+              type="button"
+            >
+              Login
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         ASSISTANT SCREEN
+         बाकी interface Part 2/5 से शुरू होगा
+         ===================================================== -->
+
+    <section
+      id="assistantScreen"
+      class="eg-screen eg-hidden"
+      aria-label="E.G. AI Assistant"
+    >
+
+      <!-- Assistant interface continues in Part 2/5 -->
+
+    </section>
+
+  </div>
+        <!-- =====================================================
+           ASSISTANT HEADER
+           ===================================================== -->
+
+      <div class="eg-assistant-layout">
+
+        <header class="eg-header">
+
+          <div class="eg-header-left">
+
+            <button
+              id="menuButton"
+              class="eg-icon-btn"
+              type="button"
+              aria-label="Menu"
+              aria-controls="egSidebar"
+              aria-expanded="false"
+            >
+              ☰
+            </button>
+
+            <div class="eg-brand">
+
+              <div
+                class="eg-brand-logo"
+                aria-hidden="true"
+              >
+                E.G.
+              </div>
+
+              <div class="eg-brand-text">
+
+                <div class="eg-brand-name">
+                  E.G. AI Assistant
+                </div>
+
+                <div
+                  id="connectionStatus"
+                  class="eg-brand-status"
+                >
+                  <span
+                    id="connectionDot"
+                    class="eg-status-dot"
+                  ></span>
+
+                  <span id="connectionText">
+                    Connecting...
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="eg-header-right">
+
+            <button
+              id="stopSpeakingButton"
+              class="eg-icon-btn"
+              type="button"
+              aria-label="Stop speaking"
+              title="Stop speaking"
+            >
+              🔇
+            </button>
+
+            <button
+              id="themeButton"
+              class="eg-icon-btn"
+              type="button"
+              aria-label="Change theme"
+              title="Change theme"
+            >
+              🌙
+            </button>
+
+          </div>
+
+        </header>
+
+
+        <!-- ===================================================
+             SIDEBAR
+             =================================================== -->
+
+        <aside
+          id="egSidebar"
+          class="eg-sidebar"
+          aria-label="Assistant menu"
+          aria-hidden="true"
+        >
+
+          <div class="eg-sidebar-header">
+
+            <div class="eg-sidebar-title">
+              E.G. Menu
+            </div>
+
+            <button
+              id="closeSidebarButton"
+              class="eg-sidebar-close"
+              type="button"
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+
+          </div>
+
+
+          <nav class="eg-sidebar-nav">
+
+            <button
+              id="newChatButton"
+              class="eg-nav-item active"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                💬
+              </span>
+
+              <span class="eg-nav-label">
+                New Chat
+              </span>
+            </button>
+
+
+            <button
+              id="historyButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                🕘
+              </span>
+
+              <span class="eg-nav-label">
+                Chat History
+              </span>
+            </button>
+
+
+            <button
+              id="memoryButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                🧠
+              </span>
+
+              <span class="eg-nav-label">
+                Memory
+              </span>
+            </button>
+
+
+            <button
+              id="notesButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                📝
+              </span>
+
+              <span class="eg-nav-label">
+                Notes
+              </span>
+            </button>
+
+
+            <button
+              id="todosButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                ☑️
+              </span>
+
+              <span class="eg-nav-label">
+                To-Do
+              </span>
+            </button>
+
+
+            <button
+              id="remindersButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                ⏰
+              </span>
+
+              <span class="eg-nav-label">
+                Reminders
+              </span>
+            </button>
+
+
+            <button
+              id="toolsButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                🛠️
+              </span>
+
+              <span class="eg-nav-label">
+                Tools
+              </span>
+            </button>
+
+
+            <button
+              id="settingsButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                ⚙️
+              </span>
+
+              <span class="eg-nav-label">
+                Settings
+              </span>
+            </button>
+
+
+            <button
+              id="securityButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                🔐
+              </span>
+
+              <span class="eg-nav-label">
+                Security
+              </span>
+            </button>
+
+
+            <button
+              id="logoutButton"
+              class="eg-nav-item"
+              type="button"
+            >
+              <span
+                class="eg-nav-icon"
+                aria-hidden="true"
+              >
+                🚪
+              </span>
+
+              <span class="eg-nav-label">
+                Logout
+              </span>
+            </button>
+
+          </nav>
+
+        </aside>
+
+
+        <div
+          id="sidebarOverlay"
+          class="eg-sidebar-overlay"
+          aria-hidden="true"
+        ></div>
+
+
+        <!-- ===================================================
+             MAIN CONTENT
+             =================================================== -->
+
+        <main class="eg-main">
+
+          <div class="eg-main-container">
+
+            <!-- ---------- WELCOME ---------- -->
+
+            <section
+              id="welcomeSection"
+              class="eg-welcome"
+            >
+
+              <div
+                class="eg-welcome-icon"
+                aria-hidden="true"
+              >
+                ✨
+              </div>
+
+              <h2
+                id="welcomeTitle"
+                class="eg-welcome-title"
+              >
+                नमस्ते! मैं E.G. हूँ
+              </h2>
+
+              <p class="eg-welcome-text">
+                आप मुझसे बात कर सकते हैं, सवाल पूछ सकते हैं,
+                voice command दे सकते हैं और अपने काम manage कर सकते हैं।
+              </p>
+
+            </section>
+
+
+            <!-- ---------- QUICK ACTIONS ---------- -->
+
+            <section
+              id="quickActions"
+              class="eg-quick-actions"
+              aria-label="Quick actions"
+            >
+
+              <button
+                id="quickVoiceButton"
+                class="eg-quick-action"
+                type="button"
+              >
+
+                <span
+                  class="eg-quick-action-icon"
+                  aria-hidden="true"
+                >
+                  🎤
+                </span>
+
+                <span class="eg-quick-action-content">
+
+                  <span class="eg-quick-action-title">
+                    Voice
+                  </span>
+
+                  <span class="eg-quick-action-text">
+                    E.G. से बोलकर पूछें
+                  </span>
+
+                </span>
+
+              </button>
+
+
+              <button
+                id="quickCalculatorButton"
+                class="eg-quick-action"
+                type="button"
+              >
+
+                <span
+                  class="eg-quick-action-icon"
+                  aria-hidden="true"
+                >
+                  🧮
+                </span>
+
+                <span class="eg-quick-action-content">
+
+                  <span class="eg-quick-action-title">
+                    Calculator
+                  </span>
+
+                  <span class="eg-quick-action-text">
+                    गणना करें
+                  </span>
+
+                </span>
+
+              </button>
+
+
+              <button
+                id="quickNotesButton"
+                class="eg-quick-action"
+                type="button"
+              >
+
+                <span
+                  class="eg-quick-action-icon"
+                  aria-hidden="true"
+                >
+                  📝
+                </span>
+
+                <span class="eg-quick-action-content">
+
+                  <span class="eg-quick-action-title">
+                    Notes
+                  </span>
+
+                  <span class="eg-quick-action-text">
+                    अपना note रखें
+                  </span>
+
+                </span>
+
+              </button>
+
+
+              <button
+                id="quickReminderButton"
+                class="eg-quick-action"
+                type="button"
+              >
+
+                <span
+                  class="eg-quick-action-icon"
+                  aria-hidden="true"
+                >
+                  ⏰
+                </span>
+
+                <span class="eg-quick-action-content">
+
+                  <span class="eg-quick-action-title">
+                    Reminder
+                  </span>
+
+                  <span class="eg-quick-action-text">
+                    याद दिलाने का काम
+                  </span>
+
+                </span>
+
+              </button>
+
+            </section>
+
+
+            <!-- ---------- CONNECTION ---------- -->
+
+            <div
+              id="mainConnectionStatus"
+              class="eg-connection"
+              aria-live="polite"
+            >
+              E.G. तैयार हो रहा है...
+            </div>
+
+          </div>
+
+        </main>
+
+      </div>
+              <!-- =====================================================
+             CHAT INTERFACE
+             ===================================================== -->
+
+        <section
+          id="chatSection"
+          class="eg-chat"
+          aria-label="E.G. chat"
+        >
+
+          <!-- ---------- CHAT MESSAGES ---------- -->
+
+          <div
+            id="chatMessages"
+            class="eg-chat-messages"
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions"
+          >
+
+            <!-- Empty chat state -->
+
+            <div
+              id="emptyChat"
+              class="eg-empty-chat"
+            >
+
+              <div
+                class="eg-empty-chat-icon"
+                aria-hidden="true"
+              >
+                💬
+              </div>
+
+              <h3 class="eg-empty-chat-title">
+                E.G. से बात शुरू करें
+              </h3>
+
+              <p class="eg-empty-chat-text">
+                अपना सवाल नीचे लिखें या microphone से बोलें।
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===================================================
+               ATTACHMENT AREA
+               =================================================== -->
+
+          <div
+            id="attachmentArea"
+            class="eg-attachment-area eg-hidden"
+            aria-label="Attachments"
+          >
+          </div>
+
+
+          <!-- ===================================================
+               CHAT COMPOSER
+               =================================================== -->
+
+          <div class="eg-chat-composer">
+
+            <form
+              id="chatForm"
+              class="eg-chat-form"
+              autocomplete="off"
+            >
+
+              <!-- Attachment button -->
+
+              <button
+                id="attachmentButton"
+                class="eg-chat-button"
+                type="button"
+                aria-label="Attach file"
+                title="Attach file"
+              >
+                📎
+              </button>
+
+              <input
+                id="attachmentInput"
+                class="eg-hidden"
+                type="file"
+                multiple
+                accept=".txt,.pdf,.doc,.docx,.csv,.json,.js,.html,.css,.md,image/*"
+              >
+
+
+              <!-- Text input -->
+
+              <div class="eg-chat-input-wrap">
+
+                <textarea
+                  id="chatInput"
+                  class="eg-chat-input"
+                  name="message"
+                  rows="1"
+                  maxlength="10000"
+                  placeholder="E.G. से कुछ पूछें..."
+                  aria-label="Message"
+                  required
+                ></textarea>
+
+                <div
+                  id="inputInfo"
+                  class="eg-input-info"
+                  aria-live="polite"
+                >
+                  0 / 10000
+                </div>
+
+              </div>
+
+
+              <!-- Voice button -->
+
+              <button
+                id="voiceButton"
+                class="eg-chat-button voice"
+                type="button"
+                aria-label="Start voice input"
+                title="Voice input"
+              >
+                🎤
+              </button>
+
+
+              <!-- Send button -->
+
+              <button
+                id="sendButton"
+                class="eg-chat-button send"
+                type="submit"
+                aria-label="Send message"
+                title="Send message"
+              >
+                ➤
+              </button>
+
+            </form>
+
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LOADING OVERLAY
+             ===================================================== -->
+
+        <div
+          id="loadingOverlay"
+          class="eg-loading"
+          hidden
+          aria-hidden="true"
+        >
+
+          <div class="eg-loading-box">
+
+            <div
+              class="eg-spinner"
+              aria-hidden="true"
+            ></div>
+
+            <div id="loadingText">
+              E.G. सोच रहा है...
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             TOAST CONTAINER
+             ===================================================== -->
+
+        <div
+          id="toastContainer"
+          class="eg-toast-container"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+                <!-- =====================================================
+             SIDEBAR PANELS
+             ===================================================== -->
+
+        <section
+          id="historyPanel"
+          class="eg-panel eg-hidden"
+          aria-label="Chat history"
+        >
+          <div class="eg-panel-header">
+            <h2>Chat History</h2>
+            <button
+              id="closeHistoryButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close history"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div
+            id="historySearchWrap"
+            class="eg-search-wrap"
+          >
+            <input
+              id="historySearch"
+              class="eg-input"
+              type="search"
+              placeholder="History खोजें..."
+              autocomplete="off"
+            >
+          </div>
+
+          <div
+            id="historyList"
+            class="eg-list"
+          ></div>
+        </section>
+
+
+        <!-- =====================================================
+             MEMORY PANEL
+             ===================================================== -->
+
+        <section
+          id="memoryPanel"
+          class="eg-panel eg-hidden"
+          aria-label="Memory"
+        >
+          <div class="eg-panel-header">
+            <h2>Memory</h2>
+
+            <button
+              id="closeMemoryButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close memory"
+            >
+              ✕
+            </button>
+          </div>
+
+          <p class="eg-panel-description">
+            E.G. आपकी अनुमति से जरूरी जानकारी याद रख सकता है।
+          </p>
+
+          <div
+            id="memoryList"
+            class="eg-list"
+          ></div>
+
+          <div class="eg-panel-actions">
+
+            <button
+              id="addMemoryButton"
+              class="eg-button primary"
+              type="button"
+            >
+              + Memory जोड़ें
+            </button>
+
+            <button
+              id="clearMemoryButton"
+              class="eg-button danger"
+              type="button"
+            >
+              Memory साफ करें
+            </button>
+
+          </div>
+        </section>
+
+
+        <!-- =====================================================
+             NOTES PANEL
+             ===================================================== -->
+
+        <section
+          id="notesPanel"
+          class="eg-panel eg-hidden"
+          aria-label="Notes"
+        >
+          <div class="eg-panel-header">
+            <h2>Notes</h2>
+
+            <button
+              id="closeNotesButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close notes"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div class="eg-panel-form">
+
+            <textarea
+              id="noteInput"
+              class="eg-textarea"
+              rows="4"
+              maxlength="5000"
+              placeholder="नई note लिखें..."
+            ></textarea>
+
+            <button
+              id="addNoteButton"
+              class="eg-button primary"
+              type="button"
+            >
+              + Note जोड़ें
+            </button>
+
+          </div>
+
+          <div
+            id="notesList"
+            class="eg-list"
+          ></div>
+        </section>
+
+
+        <!-- =====================================================
+             TODO PANEL
+             ===================================================== -->
+
+        <section
+          id="todosPanel"
+          class="eg-panel eg-hidden"
+          aria-label="To do list"
+        >
+          <div class="eg-panel-header">
+            <h2>To-Do</h2>
+
+            <button
+              id="closeTodosButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close to do list"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div class="eg-panel-form">
+
+            <input
+              id="todoInput"
+              class="eg-input"
+              type="text"
+              maxlength="5000"
+              placeholder="नया काम लिखें..."
+              autocomplete="off"
+            >
+
+            <button
+              id="addTodoButton"
+              class="eg-button primary"
+              type="button"
+            >
+              + काम जोड़ें
+            </button>
+
+          </div>
+
+          <div
+            id="todosList"
+            class="eg-list"
+          ></div>
+        </section>
+
+
+        <!-- =====================================================
+             REMINDERS PANEL
+             ===================================================== -->
+
+        <section
+          id="remindersPanel"
+          class="eg-panel eg-hidden"
+          aria-label="Reminders"
+        >
+          <div class="eg-panel-header">
+            <h2>Reminders</h2>
+
+            <button
+              id="closeRemindersButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close reminders"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div class="eg-panel-form">
+
+            <input
+              id="reminderText"
+              class="eg-input"
+              type="text"
+              maxlength="5000"
+              placeholder="Reminder लिखें..."
+              autocomplete="off"
+            >
+
+            <input
+              id="reminderTime"
+              class="eg-input"
+              type="datetime-local"
+              aria-label="Reminder date and time"
+            >
+
+            <button
+              id="addReminderButton"
+              class="eg-button primary"
+              type="button"
+            >
+              + Reminder जोड़ें
+            </button>
+
+          </div>
+
+          <div
+            id="remindersList"
+            class="eg-list"
+          ></div>
+        </section>
+
+
+        <!-- =====================================================
+             TOOLS PANEL
+             ===================================================== -->
+
+        <section
+          id="toolsPanel"
+          class="eg-panel eg-hidden"
+          aria-label="Tools"
+        >
+          <div class="eg-panel-header">
+            <h2>Tools</h2>
+
+            <button
+              id="closeToolsButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close tools"
+            >
+              ✕
+            </button>
+          </div>
+
+
+          <div class="eg-tools-grid">
+
+            <button
+              id="calculatorToolButton"
+              class="eg-tool-card"
+              type="button"
+            >
+              <span class="eg-tool-icon">🧮</span>
+              <span class="eg-tool-title">Calculator</span>
+              <span class="eg-tool-text">
+                गणना करें
+              </span>
+            </button>
+
+
+            <button
+              id="conversionToolButton"
+              class="eg-tool-card"
+              type="button"
+            >
+              <span class="eg-tool-icon">📏</span>
+              <span class="eg-tool-title">Unit Conversion</span>
+              <span class="eg-tool-text">
+                Unit बदलें
+              </span>
+            </button>
+
+
+            <button
+              id="dateTimeToolButton"
+              class="eg-tool-card"
+              type="button"
+            >
+              <span class="eg-tool-icon">🕐</span>
+              <span class="eg-tool-title">Date & Time</span>
+              <span class="eg-tool-text">
+                तारीख और समय
+              </span>
+            </button>
+
+
+            <button
+              id="timerToolButton"
+              class="eg-tool-card"
+              type="button"
+            >
+              <span class="eg-tool-icon">⏱️</span>
+              <span class="eg-tool-title">Timer</span>
+              <span class="eg-tool-text">
+                Timer चलाएँ
+              </span>
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SETTINGS PANEL
+             ===================================================== -->
+
+        <section
+          id="settingsPanel"
+          class="eg-panel eg-hidden"
+          aria-label="Settings"
+        >
+
+          <div class="eg-panel-header">
+
+            <h2>Settings</h2>
+
+            <button
+              id="closeSettingsButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close settings"
+            >
+              ✕
+            </button>
+
+          </div>
+
+
+          <div class="eg-settings-list">
+
+            <!-- Theme -->
+
+            <div class="eg-setting-row">
+
+              <div class="eg-setting-info">
+                <strong>Theme</strong>
+                <span>Dark / Light mode</span>
+              </div>
+
+              <button
+                id="settingsThemeButton"
+                class="eg-toggle-button"
+                type="button"
+              >
+                Theme
+              </button>
+
+            </div>
+
+
+            <!-- Language -->
+
+            <div class="eg-setting-row">
+
+              <div class="eg-setting-info">
+                <strong>Language</strong>
+                <span id="currentLanguageText">
+                  Hindi
+                </span>
+              </div>
+
+              <select
+                id="languageSelect"
+                class="eg-select"
+                aria-label="Language"
+              >
+                <option value="hi-IN">
+                  Hindi
+                </option>
+
+                <option value="en-US">
+                  English
+                </option>
+
+                <option value="bn-IN">
+                  Bengali
+                </option>
+
+                <option value="gu-IN">
+                  Gujarati
+                </option>
+
+                <option value="mr-IN">
+                  Marathi
+                </option>
+
+                <option value="ta-IN">
+                  Tamil
+                </option>
+
+                <option value="te-IN">
+                  Telugu
+                </option>
+
+                <option value="kn-IN">
+                  Kannada
+                </option>
+
+                <option value="ml-IN">
+                  Malayalam
+                </option>
+
+                <option value="pa-IN">
+                  Punjabi
+                </option>
+
+                <option value="ur-IN">
+                  Urdu
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Personality -->
+
+            <div class="eg-setting-row">
+
+              <div class="eg-setting-info">
+                <strong>Personality</strong>
+                <span id="currentPersonalityText">
+                  Friendly
+                </span>
+              </div>
+
+              <select
+                id="personalitySelect"
+                class="eg-select"
+                aria-label="Personality"
+              >
+
+                <option value="friendly">
+                  Friendly
+                </option>
+
+                <option value="funny">
+                  Funny
+                </option>
+
+                <option value="romantic">
+                  Romantic
+                </option>
+
+                <option value="professional">
+                  Professional
+                </option>
+
+                <option value="teacher">
+                  Teacher
+                </option>
+
+                <option value="coding">
+                  Coding
+                </option>
+
+                <option value="serious">
+                  Serious
+                </option>
+
+                <option value="supportive">
+                  Supportive
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECURITY PANEL
+             ===================================================== -->
+
+        <section
+          id="securityPanel"
+          class="eg-panel eg-hidden"
+          aria-label="Security"
+        >
+
+          <div class="eg-panel-header">
+
+            <h2>Security</h2>
+
+            <button
+              id="closeSecurityButton"
+              class="eg-icon-button"
+              type="button"
+              aria-label="Close security"
+            >
+              ✕
+            </button>
+
+          </div>
+
+
+          <div class="eg-security-card">
+
+            <div class="eg-security-icon">
+              🔐
+            </div>
+
+            <h3>
+              Account & Data Security
+            </h3>
+
+            <p>
+              आपकी personal information और account
+              access को सुरक्षित रखने के लिए security
+              controls यहाँ उपलब्ध हैं।
+            </p>
+
+          </div>
+
+
+          <div class="eg-security-actions">
+
+            <button
+              id="logoutAllButton"
+              class="eg-button warning"
+              type="button"
+            >
+              सभी devices से Logout
+            </button>
+
+            <button
+              id="deleteAccountButton"
+              class="eg-button danger"
+              type="button"
+            >
+              Account Delete
+            </button>
+
+          </div>
+
+  </section>
+          <!-- =====================================================
+             MODALS
+             ===================================================== -->
+
+        <div
+          id="calculatorModal"
+          class="eg-modal eg-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="calculatorModalTitle"
+        >
+          <div class="eg-modal-box">
+
+            <div class="eg-modal-header">
+              <h2 id="calculatorModalTitle">
+                Calculator
+              </h2>
+
+              <button
+                id="closeCalculatorButton"
+                class="eg-icon-button"
+                type="button"
+                aria-label="Close calculator"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div class="eg-modal-body">
+
+              <input
+                id="calculatorInput"
+                class="eg-input"
+                type="text"
+                inputmode="decimal"
+                placeholder="जैसे: 25 × 4"
+                autocomplete="off"
+              >
+
+              <button
+                id="calculateButton"
+                class="eg-button primary"
+                type="button"
+              >
+                Calculate
+              </button>
+
+              <div
+                id="calculatorResult"
+                class="eg-tool-result"
+                aria-live="polite"
+              ></div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- =====================================================
+             UNIT CONVERSION MODAL
+             ===================================================== -->
+
+        <div
+          id="conversionModal"
+          class="eg-modal eg-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="conversionModalTitle"
+        >
+          <div class="eg-modal-box">
+
+            <div class="eg-modal-header">
+
+              <h2 id="conversionModalTitle">
+                Unit Conversion
+              </h2>
+
+              <button
+                id="closeConversionButton"
+                class="eg-icon-button"
+                type="button"
+                aria-label="Close unit conversion"
+              >
+                ✕
+              </button>
+
+            </div>
+
+
+            <div class="eg-modal-body">
+
+              <input
+                id="conversionValue"
+                class="eg-input"
+                type="number"
+                placeholder="Value"
+                inputmode="decimal"
+              >
+
+
+              <select
+                id="conversionCategory"
+                class="eg-select"
+                aria-label="Conversion category"
+              >
+
+                <option value="length">
+                  Length
+                </option>
+
+                <option value="weight">
+                  Weight
+                </option>
+
+                <option value="volume">
+                  Volume
+                </option>
+
+              </select>
+
+
+              <div class="eg-conversion-row">
+
+                <select
+                  id="conversionFrom"
+                  class="eg-select"
+                  aria-label="Convert from"
+                >
+                  <option value="m">
+                    Meter
+                  </option>
+                </select>
+
+
+                <span
+                  class="eg-conversion-arrow"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+
+
+                <select
+                  id="conversionTo"
+                  class="eg-select"
+                  aria-label="Convert to"
+                >
+                  <option value="ft">
+                    Feet
+                  </option>
+                </select>
+
+              </div>
+
+
+              <button
+                id="convertButton"
+                class="eg-button primary"
+                type="button"
+              >
+                Convert
+              </button>
+
+
+              <div
+                id="conversionResult"
+                class="eg-tool-result"
+                aria-live="polite"
+              ></div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- =====================================================
+             TIMER MODAL
+             ===================================================== -->
+
+        <div
+          id="timerModal"
+          class="eg-modal eg-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="timerModalTitle"
+        >
+
+          <div class="eg-modal-box">
+
+            <div class="eg-modal-header">
+
+              <h2 id="timerModalTitle">
+                Timer
+              </h2>
+
+              <button
+                id="closeTimerButton"
+                class="eg-icon-button"
+                type="button"
+                aria-label="Close timer"
+              >
+                ✕
+              </button>
+
+            </div>
+
+
+            <div class="eg-modal-body">
+
+              <input
+                id="timerSeconds"
+                class="eg-input"
+                type="number"
+                min="1"
+                max="86400"
+                placeholder="Seconds"
+                inputmode="numeric"
+              >
+
+
+              <button
+                id="startTimerButton"
+                class="eg-button primary"
+                type="button"
+              >
+                Start Timer
+              </button>
+
+
+              <button
+                id="stopTimerButton"
+                class="eg-button danger"
+                type="button"
+              >
+                Stop Timer
+              </button>
+
+
+              <div
+                id="timerDisplay"
+                class="eg-timer-display"
+                aria-live="polite"
+              >
+                00:00
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CONFIRMATION MODAL
+             ===================================================== -->
+
+        <div
+          id="confirmationModal"
+          class="eg-modal eg-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="confirmationTitle"
+        >
+
+          <div class="eg-modal-box">
+
+            <div class="eg-modal-header">
+
+              <h2 id="confirmationTitle">
+                Confirmation Required
+              </h2>
+
+              <button
+                id="closeConfirmationButton"
+                class="eg-icon-button"
+                type="button"
+                aria-label="Close confirmation"
+              >
+                ✕
+              </button>
+
+            </div>
+
+
+            <div class="eg-modal-body">
+
+              <p
+                id="confirmationMessage"
+                class="eg-confirmation-message"
+              >
+                क्या आप यह action करना चाहते हैं?
+              </p>
+
+
+              <div class="eg-modal-actions">
+
+                <button
+                  id="cancelConfirmationButton"
+                  class="eg-button secondary"
+                  type="button"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  id="confirmActionButton"
+                  class="eg-button danger"
+                  type="button"
+                >
+                  Confirm
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             GENERAL MESSAGE MODAL
+             ===================================================== -->
+
+        <div
+          id="messageModal"
+          class="eg-modal eg-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="messageModalTitle"
+        >
+
+          <div class="eg-modal-box">
+
+            <div class="eg-modal-header">
+
+              <h2 id="messageModalTitle">
+                E.G.
+              </h2>
+
+              <button
+                id="closeMessageButton"
+                class="eg-icon-button"
+                type="button"
+                aria-label="Close message"
+              >
+                ✕
+              </button>
+
+            </div>
+
+
+            <div class="eg-modal-body">
+
+              <p
+                id="messageModalText"
+                class="eg-modal-message"
+              ></p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             ACCESSIBILITY / STATUS
+             ===================================================== -->
+
+        <div
+          id="srStatus"
+          class="eg-sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+
+
+        <!-- =====================================================
+             FINAL ASSISTANT SECTION CLOSE
+             ===================================================== -->
+
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- =========================================================
+       APPLICATION SCRIPT
+       ========================================================= -->
+
+  <script
+    src="script.js?v=1.0.0"
+    defer
+  ></script>
+
+</body>
+</html>
